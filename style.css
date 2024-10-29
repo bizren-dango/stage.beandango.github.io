@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: #25433a;
+    background: url(img/2z2J.gif);
+    background-size: cover;
     line-height: 133%;
     font-size: 0.98em;
     font-family: "Open Sans", "Droid Sans", "Calibri", sans-serif;
@@ -118,8 +119,6 @@ body {
   .page-wrapper {
     padding: 0 100px;
     margin: 0 auto;
-    background: #ddd;
-    background: url(img/2z2J.gif); /*Gradient makes tiles "fade in".*/
     }
   
   /*Contains the sidebar boxes.*/
@@ -302,7 +301,6 @@ body {
 
     .spacer {
         height: 200px;
-        background: url(img/2z2J.gif);
     }
 
     .links {
