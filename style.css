@@ -138,21 +138,6 @@ body {
     margin: auto;
     }
     
-  .sidebar a {
-    display: block;
-    border-left: 3px solid #699279;
-    background: #b9d6c2;
-    padding: 5px;
-    margin: 10px 0;
-    color: #0e0718;
-    text-decoration: none;
-    }
-    
-  .sidebar a:hover, .sidebar a:focus {
-    background: #99c7ab;
-    transition: ease-in 0.1s, ease-out 0.1s;
-    }
-    
   .sidebar, .main {
     display: inline-block;
     }
@@ -370,6 +355,26 @@ body {
       margin-right: 10px;
     }
     
+.no-arrow::after,
+.no-arrow.collapsed::after {
+  display: none !important;
+  content: none !important;
+}
+
+.accordion-button {
+  background-color: #fff;
+}
+
+button:hover{
+  background-color: #cfe2ff;
+}
+
+.sidebar a{
+  text-decoration: none;
+}
+
+
+
 
     
 
