@@ -8,6 +8,7 @@
              If you include the next line in all your web pages, they will all share the same look.
              This makes it easier to make new pages for your site. -->
         <link href="style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
       </head>
       <body cz-shortcut-listen="true"><span id="top" a4a7pero4rc1u7e05dqapr=""></span>
       
@@ -29,32 +30,106 @@
       <div class="page-wrapper" a4a7pero4rc1u7e05dqapr="">
       
         <div class="sidebar">
-            <div class="box">
-            <h1>Directory</h1>
-            <div class="inner">
-              <a href="index.html">Home</a>
-              <a href="links.html">Links</a>
-            </div>
-          </div>
           <div class="box">
-            <h1> Here we go again...</h1>
-            <div class="inner">
-              <p>
-                <b>SUBJECT:</b> Dango <br>
-                <b>GENDER:</b> Female (uses she/her pronouns) <br>
-                <b>AGE:</b> Appears to be mid twenties
-              </p>
-            </div>
-          </div>
-          <div class="box">
-            <h1>Apparent interests</h1>
-            <div class="inner">
-              <ul>
-                <li>???</li>
-              </ul>
+          <h1>Directory</h1>
+          <div class="inner">
+
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <a href="index.html">
+                    <button 
+                    class="accordion-button no-arrow" 
+                    type="button" style="background-color: #FFF;">
+                      Home
+                    </button>
+                  </a>
+                  
+                </h2>
+                <div 
+                  id="collapseOne" 
+                  class="accordion-collapse collapse"
+                >
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button 
+                    class="accordion-button collapsed" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#collapseTwo" 
+                    aria-expanded="false" 
+                    aria-controls="collapseTwo"
+                  >
+                    Links
+                  </button>
+                </h2>
+                <div 
+                  id="collapseTwo" 
+                  class="accordion-collapse collapse"
+                >
+                  <div class="accordion-body">
+                    <a href="https://bsky.app/profile/hajimedango.bizren.moe" target="_blank">
+                      <button 
+                      class="accordion-button no-arrow" 
+                      type="button" style="background-color: #FFF;">
+                      Bluesky
+                      </button>
+                    </a>
+                    <a href="https://youtube.com/@hajimedangovt" target="_blank">
+                      <button 
+                      class="accordion-button no-arrow" 
+                      type="button" style="background-color: #FFF;">
+                        Youtube
+                      </button>
+                    </a>
+                    <a href="https://discord.gg/d6ByZfC8gZ" target="_blank">
+                      <button 
+                      class="accordion-button no-arrow" 
+                      type="button" style="background-color: #FFF;">
+                        Discord
+                      </button>
+                    </a>
+                    <a href="https://vgen.co/hajimedangovt" target="_blank">
+                      <button 
+                      class="accordion-button no-arrow" 
+                      type="button" style="background-color: #FFF;">
+                        VGen
+                      </button>
+                    </a>
+                    <a href="https://beandango.straw.page/" target="_blank">
+                      <button 
+                      class="accordion-button no-arrow" 
+                      type="button" style="background-color: #FFF;">
+                        Strawpage
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="box">
+          <h1> Here we go again...</h1>
+          <div class="inner">
+            <p>
+              <b>SUBJECT:</b> 0510H <br>
+              <b>GENDER:</b> Female<br>
+              <b>AGE:</b> Appears to be mid twenties
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <h1>Apparent interests</h1>
+          <div class="inner">
+            <ul>
+              <li>???</li>
+            </ul>
+          </div>
+        </div>
+      </div>
         
         <div class="main">
           <div class="box">
@@ -83,9 +158,11 @@
         <h2>Did you find her yet?</h2>
          <p>Do you know what she is?</p>
          <p><a href="#top">To Top</a></p>
-         <p>©Copyright beanDango 2024</p>
+         <p>©Copyright HajimeDangoVT 2024</p>
         </div>
       </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       
     
     </body>
