@@ -1,368 +1,356 @@
 
 
 body {
-  margin: 0;
-  padding: 0;
-  background: url(img/2z2J.gif);
-  background-size: cover;
-  line-height: 133%;
-  font-size: 0.98em;
-  font-family: "Open Sans", "Droid Sans", "Calibri", sans-serif;
-  }
-  
-  
+margin: 0;
+padding: 0;
+background: url(img/2z2J.gif);
+background-size: cover;
+line-height: 133%;
+font-size: 0.98em;
+font-family: "Open Sans", "Droid Sans", "Calibri", sans-serif;
+}
+
+
 /*Miscellanous custom styling for various elements.*/
 h1, h2, h3 {
-  font-family: "Calibri";
-  }
-  
-a {
-  color: #43855c;
-  }
+font-family: "Calibri";
+}
 
-a:hover, a:focus {
-  color: #25432d;
-  transition: ease-in 0.1s, ease-out 0.1s;
-  }
-  
+
 blockquote {
-  border-left: #43856c 3px solid;
-  background: #d4ecd6;
-  padding: 0.1px 0.75rem;
-  margin: 0 1.5rem;
-  }
+border-left: #43856c 3px solid;
+background: #d4ecd6;
+padding: 0.1px 0.75rem;
+margin: 0 1.5rem;
+}
 
 hr {
-  width: 75%;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  }
-  
+width: 75%;
+margin-top: 1.5rem;
+margin-bottom: 1.5rem;
+}
+
 /*Sticky navigation links at the top of the page.*/
 .quick-nav {
-  position:fixed;
-  z-index: 999;
-  width: 100%;
-  background: #0a000a;
-  background: rgba(10,0,10,1);
-  text-align: right;
-  color: #fff;  
-  font-size: 0.875em;
-  }
-  
+position:fixed;
+z-index: 999;
+width: 100%;
+background: #0a000a;
+background: rgba(10,0,10,1);
+text-align: right;
+color: #fff;  
+font-size: 0.875em;
+}
+
 .navbar {
-  padding: 1px 25px;
-  }
-  
+padding: 1px 25px;
+}
+
 .navbar a {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  padding: 5px 4px;
-  margin: 0 2px;
-  }
-  
+display: inline-block;
+text-decoration: none;
+color: #fff;
+padding: 5px 4px;
+margin: 0 2px;
+}
+
 .navbar a:hover, .footer a:hover, .navbar a:focus, .footer a:focus {
-  color: #edeef3;
-  transition: ease-in 0.1s, ease-out 0.1s;
-  }
-  
-  
+color: #edeef3;
+transition: ease-in 0.1s, ease-out 0.1s;
+}
+
+
 /*Header image.*/
 .header {
-  height: 350px;
-  background: linear-gradient(rgba(10,0,10,0.5), rgba(10,0,10,0.4)), url(img/static.gif);
-  }
+height: 350px;
+background: linear-gradient(rgba(10,0,10,0.5), rgba(10,0,10,0.4)), url(img/static.gif);
+}
 
 /*Title bar with icon and title/tagline.*/
 .title {
-  background: #1e1f24;
-  min-height: 60px;
-  margin-bottom: -25px;
-  text-align: right;
-  }
-  
+background: #1e1f24;
+min-height: 60px;
+margin-bottom: -25px;
+text-align: right;
+}
+
 .title-text, .title-pic {
-  padding:0;
-  margin: 0;
-  display: inline-block;
-  vertical-align: top;
-  }
-  
+padding:0;
+margin: 0;
+display: inline-block;
+vertical-align: top;
+}
+
 /*Contains the text tagline.*/
 .title-text {
-  padding-right: 1em;
-  width: calc(85vw - 110px);
-  line-height: 167%;
-  margin-top: -3px;
-  padding-bottom: 15px;
-  }
-  
+padding-right: 1em;
+width: calc(85vw - 110px);
+line-height: 167%;
+margin-top: -3px;
+padding-bottom: 15px;
+}
+
 .title-text h1 {
-  padding:0;
-  font-size: 32px;
-  }
-  
+padding:0;
+font-size: 32px;
+}
+
 /*Contains the profile pic. This can be left out and should still look okay.*/
 .title-pic {
-  height: 100px;
-  margin-right: 100px;
-  margin-top: -25px;
-  border: 5px solid #527c62;
-  border-radius: 10px;
-  }
-  
+height: 100px;
+margin-right: 100px;
+margin-top: -25px;
+border: 5px solid #527c62;
+border-radius: 10px;
+}
+
 .title-pic img {
-  height: 100%;
-  overflow: hidden;
-  }
-  
+height: 100%;
+overflow: hidden;
+}
+
 /*Contains the main content and sidebar.*/
 .page-wrapper {
-  padding: 0 100px;
-  margin: 0 auto;
-  }
+padding: 0 100px;
+margin: 0 auto;
+}
 
 /*Contains the sidebar boxes.*/
 .sidebar {
-  width: 320px;
-  margin: 50px 0;
-  position: absolute;
-  }
-  
+width: 320px;
+margin: 50px 0;
+position: absolute;
+}
+
 .sidebar h1 {
-  font-size: 1.2rem;
-  background: #699279;
-  color: #fff;
-  padding: 12px 10px 10px 10px;
-  margin: auto;
-  }
-  
+font-size: 1.2rem;
+background: #699279;
+color: #fff;
+padding: 12px 10px 10px 10px;
+margin: auto;
+}
+
 .sidebar, .main {
-  display: inline-block;
-  }
+display: inline-block;
+}
 
 /*Contains main content boxes.*/
 .main {
-  margin: 50px 100px 50px 350px;
-  width: auto;
-  width: calc(100vw - 550px);
-  }
-  
-  
+margin: 50px 100px 50px 350px;
+width: auto;
+width: calc(100vw - 550px);
+}
+
+
 /*Basic container type for subsections of main and sidebar divs*/
 .box {
-  margin-bottom: 15px;
-  }
-  
+margin-bottom: 15px;
+}
+
 /*Inner content div for boxes. Padding goes here so sidebar headers etc can keep their no-margin look.*/
 .inner {
-  background:  #edeef3;
-  padding: 10px 25px;
-  }
+background:  #edeef3;
+padding: 10px 25px;
+}
 
 .inner img {
-  max-width: 100%; /*Prevent image overflow.*/
-  height: auto;
-  border-radius: 5px; /*Give images in content rounded corners.*/
-  }
-  
+max-width: 100%; /*Prevent image overflow.*/
+height: auto;
+border-radius: 5px; /*Give images in content rounded corners.*/
+}
+
 .box, .title-pic img {
-  border-radius: 5px;
-  overflow: hidden; /*Force inner divs to conform to rounded corners.*/
-  }
-  
-  
+border-radius: 5px;
+overflow: hidden; /*Force inner divs to conform to rounded corners.*/
+}
+
+
 /*Footer section.*/
 .footer {
-  background: #050005;
-  color: #fff;
-  padding: 5px 20px;
-  font-size: 0.75em;
-  padding-bottom: 10px;
-  }
-  
+background: #050005;
+color: #fff;
+padding: 5px 20px;
+font-size: 0.75em;
+padding-bottom: 10px;
+}
+
 .footer a {
-  color: #fff;
-  }
+color: #fff;
+}
 
 /*Individual column of the footer. You can have 3 of these at the current given width.*/
 .footer-column {
-  width: 25%;
-  margin: 5px 10px;
-  display: inline-block;
-  vertical-align: top;
-  }
+width: 25%;
+margin: 5px 10px;
+display: inline-block;
+vertical-align: top;
+}
 
 
 /*Adapt to narrower screens.*/
 @media(max-width: 900px) {
-  .page-wrapper {
-    padding: 0 50px;
-    }
-  
-  .sidebar {
-    width: 25vw;
-    }
-    
-  .main {
-    margin: 50px 0 50px calc(25vw + 30px);
-    width: calc(75vw - 150px);
-    }
-    
-  .title-pic {
-    margin-right: 7vw;
-    }
-    
-  .title-text {
-    padding-left: 1vw;
-    padding-right: 2vw;
-    }
-  
+.page-wrapper {
+  padding: 0 50px;
+  }
+
+.sidebar {
+  width: 25vw;
   }
   
+.main {
+  margin: 50px 0 50px calc(25vw + 30px);
+  width: calc(75vw - 150px);
+  }
+  
+.title-pic {
+  margin-right: 7vw;
+  }
+  
+.title-text {
+  padding-left: 1vw;
+  padding-right: 2vw;
+  }
+
+}
+
 /*Mobile layout.*/
 @media(orientation: portrait) {  
-  .page-wrapper {
-    padding-top: 0.1px;
-    padding-bottom: 0.1px;
-    }
-  
-  .sidebar, .main {
-    display: block;
-    margin: 0 auto;
-    position: static;
-    width: 100%;    
-    }
-    
-  .sidebar {
-    margin-top: 50px;
-    }
-    
-  .main {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    }
-    
-    
+.page-wrapper {
+  padding-top: 0.1px;
+  padding-bottom: 0.1px;
+  }
+
+.sidebar, .main {
+  display: block;
+  margin: 0 auto;
+  position: static;
+  width: 100%;    
   }
   
+.sidebar {
+  margin-top: 50px;
+  }
+  
+.main {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  }
+  
+  
+}
+
 /***
 For really narrow screens which cause the title text to wrap. 
 You may need to adjust the width at which this kicks in to fit 
 your own title.
 ***/
 @media(max-width: 500px) {
-  .header {
-    height: 60vw;
-    }
-  
-  .title {
-    padding-right: 0;
-    }
-  
-  .title-text {
-    margin-top: -5px;
-    }
-    
-  .title-text h1 {
-    font-size: 6vw;
-    line-height: 75%;
-    }
-    
-  .title {
-    height: calc(auto - 25px);
-    }
-    
-  .page-wrapper {
-    padding: 0.1px 7vw;
-    }
-    
-  /*For extra narrow screens where the columns would get too skinny.*/
-  .footer-column {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    }
+.header {
+  height: 60vw;
   }
 
-  .spacer {
-      height: 200px;
+.title {
+  padding-right: 0;
   }
 
-  .links {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    gap: 10px;
+.title-text {
+  margin-top: -5px;
   }
+  
+.title-text h1 {
+  font-size: 6vw;
+  line-height: 75%;
+  }
+  
+.title {
+  height: calc(auto - 25px);
+  }
+  
+.page-wrapper {
+  padding: 0.1px 7vw;
+  }
+  
+/*For extra narrow screens where the columns would get too skinny.*/
+.footer-column {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  }
+}
 
-  .links img {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-  .avator {
-    border-radius:100px;
-    width:48px;
-    margin-right: 15px;
-  }
+.spacer {
+    height: 200px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 10px;
+}
+
+.links img {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.avator {
+  border-radius:100px;
+  width:48px;
+  margin-right: 15px;
+}
+
+
+.tweet-wrap {
+  max-width:490px;
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius:3px;
+  padding: 30px;
+  border-bottom: 1px solid #e6ecf0;
+  border-top: 1px solid #e6ecf0;
+}
+
+.tweet-header {
+  display: flex;
+  align-items:flex-start;
+  font-size:14px;
+}
+.tweet-header-info {
+  font-weight:bold;
+}
+.tweet-header-info span {
+  color:#657786;
+  font-weight:normal;
+  margin-left: 5px;
+}
+.tweet-header-info p {
+  font-weight:normal;
+  margin-top: 5px;
   
-  
-  .tweet-wrap {
-    max-width:490px;
-    background: #fff;
-    margin: 0 auto;
-    margin-top: 50px;
-    border-radius:3px;
-    padding: 30px;
-    border-bottom: 1px solid #e6ecf0;
-    border-top: 1px solid #e6ecf0;
-  }
-  
-  .tweet-header {
-    display: flex;
-    align-items:flex-start;
-    font-size:14px;
-  }
-  .tweet-header-info {
-    font-weight:bold;
-  }
-  .tweet-header-info span {
-    color:#657786;
-    font-weight:normal;
-    margin-left: 5px;
-  }
-  .tweet-header-info p {
-    font-weight:normal;
-    margin-top: 5px;
-    
-  }
-  .tweet-img-wrap {
-    padding-left: 60px;
-  }
-  
-  .tweet-info-counts {
-    display: flex;
-    margin-left: 60px;
-    margin-top: 10px;
-  }
-  .tweet-info-counts div {
-    display: flex;
-    margin-right: 20px;
-  }
-  .tweet-info-counts div svg {
-    color:#657786;
-    margin-right: 10px;
-  }
-  
+}
+.tweet-img-wrap {
+  padding-left: 60px;
+}
+
+.tweet-info-counts {
+  display: flex;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.tweet-info-counts div {
+  display: flex;
+  margin-right: 20px;
+}
+.tweet-info-counts div svg {
+  color:#657786;
+  margin-right: 10px;
+}
+
 .no-arrow::after,
 .no-arrow.collapsed::after {
 display: none !important;
 content: none !important;
-}
-
-.accordion-button {
-background-color: #fff;
 }
 
 button:hover{
@@ -373,9 +361,16 @@ background-color: #cfe2ff;
 text-decoration: none;
 }
 
+a:hover {
+color: #cfe2ff;
+}
+
+.accordion-button.no-arrow:hover {
+  background-color: #cfe2ff !important;
+}
 
 
 
-  
+
 
 
