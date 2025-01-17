@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOLD UP!!!</title>
+    <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+        }
+        body {
+          /* Full-screen background image */
+          background: url(img/static.gif) no-repeat center center fixed;
+          background-size: cover;
+          position: relative; /* Enables absolutely positioned children */
+        }
+        .center-button {
+          /* Center the button */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 15px 30px;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="playAudioBtn" class="center-button">?</button>
+
+    <!-- The audio element (no autoplay, so the user must click the button) -->
+    <audio id="bgAudio" src="ohboy.mp3"></audio>
+
+    <script>
+        const audio = document.getElementById('bgAudio');
+        audio.volume = 0.4;
+        const playBtn = document.getElementById('playAudioBtn');
+    
+        // When the button is clicked, play the audio
+        playBtn.addEventListener('click', () => {
+          audio.play().catch(err => {
+            console.log('Audio playback failed:', err);
+          });
+        });
+
+        audio.addEventListener('ended', () => {
+            window.location.href = "log2.html";
+        });
+      </script>
+</body>
+</html>
