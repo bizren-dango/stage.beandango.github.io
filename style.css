@@ -357,7 +357,7 @@ button:hover{
 background-color: #cfe2ff;
 }
 
-.sidebar a{
+.sidebar a, .pagebutton a {
 text-decoration: none;
 }
 

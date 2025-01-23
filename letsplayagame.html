@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>PICROSS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sans-serif;
+      margin-top: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    /* 
+      A 2x2 grid container:
+      ┌───────────┬─────────────┐
+      │  spacer   │ column-clues│
+      ├───────────┼─────────────┤
+      │ row-clues │  puzzle-grid│
+      └───────────┴─────────────┘
+    */
+    .picross-container {
+      display: grid;
+      grid-template-columns: auto 1fr; /* left: clues, right: puzzle */
+      grid-template-rows: auto 1fr;   /* top: clues, bottom: puzzle */
+      gap: 10px; /* space between areas */
+      margin: 0 auto;
+      /* You can adjust the gap or add margins/padding as desired */
+    }
+
+    /* Top-left corner (often just empty space or a label) */
+    .top-left-spacer {
+      grid-column: 1;
+      grid-row: 1;
+      width: 40px;  /* same size as a cell if you like */
+      height: 40px;
+    }
+
+    .column-clues {
+      grid-column: 2;
+      grid-row: 1;
+      display: flex;
+      justify-content: flex-start;
+      /* We’ll stack each column's clues in a vertical list. 
+         We can do this by building each column's clue as a small
+         ‘column block’ (flex child). */
+    }
+
+    .column-clues > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 40px;     /* match puzzle cells for nice alignment */
+      margin-right: 5px;
+    }
+
+    .row-clues {
+      grid-column: 1;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .row-clues > div {
+      min-height: 40px;
+      text-align: right;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 5px;
+      /* ensures each row clue lines up horizontally with that puzzle row */
+    }
+
+    .grid {
+      grid-column: 2;
+      grid-row: 2;
+      display: inline-grid;
+      border: 2px solid #000;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 24px;
+      line-height: 40px;
+      user-select: none;
+    }
+    .filled {
+      background-color: #333;
+      color: white;
+    }
+    .marked {
+      background-color: #f0f0f0;
+      color: red;
+    }
+
+    #completionMessage {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: green;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h1>COMPLETE THE PICTURE</h1>
+  <div class="picross-container" id="picrossGameContainer">
+    <!-- 1) The top-left spacer -->
+    <div class="top-left-spacer"></div>
+
+    <!-- 2) The column clues get injected here -->
+    <div class="column-clues" id="columnClues"></div>
+
+    <!-- 3) The row clues get injected here -->
+    <div class="row-clues" id="rowClues"></div>
+
+    <!-- 4) The puzzle grid goes here -->
+    <div class="grid" id="puzzleGrid"></div>
+  </div>
+
+  <div id="completionMessage">
+    <p>Oh thank god you're here! It worked! I don't think they can find us here... 
+        <br><br>
+        So, how about another quick game? After this one... it might be time to finally tell you the truth... 
+        <br><br><br><br>
+        Oh... just look into my eye. It's how I can properly connect with you. Things will make sense soon... hopefully...
+    </p>
+    <a href="snake.html">
+        <img src="img/EYE.png" alt="" width="500px">
+    </a>
+    
+</div>
+
+  <script>
+    /***************************************************
+     * 1) Define your puzzle solution (predetermined shape).
+     *    1 = filled, 0 = empty
+     ***************************************************/
+    const puzzleSolution = [
+      [0, 0, 1, 0, 0],
+      [1, 1, 0, 1, 1],
+      [1, 0, 1, 0, 1],
+      [1, 1, 0, 1, 1],
+      [0, 0, 1, 0, 0],
+    ];
+    const ROWS = puzzleSolution.length;
+    const COLS = puzzleSolution[0].length;
+
+    /***************************************************
+     * 2) Generate numeric clues for each row & column
+     ***************************************************/
+    function generateCluesFromLine(line) {
+      let clues = [];
+      let count = 0;
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] === 1) {
+          count++;
+        } else if (count > 0) {
+          clues.push(count);
+          count = 0;
+        }
+      }
+      if (count > 0) {
+        clues.push(count);
+      }
+      if (clues.length === 0) {
+        clues.push(0);
+      }
+      return clues;
+    }
+
+    const rowCluesData = puzzleSolution.map(row => generateCluesFromLine(row));
+
+    const columnCluesData = [];
+    for (let c = 0; c < COLS; c++) {
+      let columnArray = [];
+      for (let r = 0; r < ROWS; r++) {
+        columnArray.push(puzzleSolution[r][c]);
+      }
+      columnCluesData.push(generateCluesFromLine(columnArray));
+    }
+
+    /***************************************************
+     * 3) Build the puzzle UI
+     ***************************************************/
+    function buildPicross() {
+      // Insert row clues
+      const rowCluesContainer = document.getElementById('rowClues');
+      rowCluesData.forEach(clueArray => {
+        const rowDiv = document.createElement('div');
+        rowDiv.textContent = clueArray.join(' ');
+        rowCluesContainer.appendChild(rowDiv);
+      });
+
+      // Insert column clues
+      const columnCluesContainer = document.getElementById('columnClues');
+      columnCluesData.forEach(clueArray => {
+        const colDiv = document.createElement('div');
+        colDiv.textContent = clueArray.join(' ');
+        columnCluesContainer.appendChild(colDiv);
+      });
+
+      // Create the puzzle grid
+      const puzzleGrid = document.getElementById('puzzleGrid');
+      puzzleGrid.style.gridTemplateColumns = `repeat(${COLS}, 40px)`;
+
+      // Build each cell
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          cell.dataset.row = r;
+          cell.dataset.col = c;
+          cell.addEventListener('click', onCellLeftClick);
+          cell.addEventListener('contextmenu', onCellRightClick);
+          puzzleGrid.appendChild(cell);
+        }
+      }
+    }
+
+    /***************************************************
+     * 4) Handle clicks
+     ***************************************************/
+    function onCellLeftClick(e) {
+      const cell = e.target;
+      // ignore if currently 'marked'
+      if (cell.classList.contains('marked')) return;
+      cell.classList.toggle('filled');
+      checkCompletion();
+    }
+
+    function onCellRightClick(e) {
+      e.preventDefault();
+      const cell = e.target;
+      // only allow marking if not currently filled
+      if (!cell.classList.contains('filled')) {
+        cell.classList.toggle('marked');
+      }
+    }
+
+    /***************************************************
+     * 5) Check puzzle completion
+     ***************************************************/
+    function checkCompletion() {
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          const cell = document.querySelector(
+            `.cell[data-row="${r}"][data-col="${c}"]`
+          );
+          const shouldBeFilled = puzzleSolution[r][c] === 1;
+          const isFilled = cell.classList.contains('filled');
+          if (shouldBeFilled !== isFilled) {
+            return; // not complete yet
+          }
+        }
+      }
+      // If we reach here, puzzle is complete
+      document.getElementById('completionMessage').style.visibility = 'visible';
+    }
+
+    /***************************************************
+     * Initialize on page load
+     ***************************************************/
+    buildPicross();
+  </script>
+</body>
+</html>
