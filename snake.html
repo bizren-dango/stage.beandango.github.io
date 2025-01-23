@@ -35,6 +35,37 @@
       margin-top: 10px;
       visibility: hidden; 
     }
+    /* Simple 3x3 grid for arrow buttons */
+    .mobile-arrows {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 60px 60px 60px;
+      grid-template-rows: 60px 60px 60px;
+      gap: 5px;
+      justify-items: center;
+      align-items: center;
+    }
+    .arrow-btn {
+      width: 60px;
+      height: 60px;
+      background-color: #ccc;
+      font-size: 20px;
+      border: 2px solid #888;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+    }
+    .arrow-btn:active {
+      background-color: #bbb;
+    }
+    /* We can hide the center corners if we like, 
+       or just leave them as placeholders. */
+    .placeholder {
+      visibility: hidden; 
+    }
   </style>
 </head>
 <body>
@@ -47,6 +78,23 @@
     But... a promise is a promise. I'll tell you everything. It's up to you how you accept this <a href="truth.html">information.</a>
     </p>
   </div>
+  <!-- On-screen arrow controls -->
+  <div class="mobile-arrows">
+    <!-- Top row: [placeholder, up, placeholder] -->
+    <div class="placeholder"></div>
+    <div class="arrow-btn" id="btnUp">↑</div>
+    <div class="placeholder"></div>
+
+    <!-- Middle row: [left, placeholder, right] -->
+    <div class="arrow-btn" id="btnLeft">←</div>
+    <div class="placeholder"></div>
+    <div class="arrow-btn" id="btnRight">→</div>
+
+    <!-- Bottom row: [placeholder, down, placeholder] -->
+    <div class="placeholder"></div>
+    <div class="arrow-btn" id="btnDown">↓</div>
+    <div class="placeholder"></div>
+  </div>
 
   <script>
     // -------------------
@@ -55,7 +103,7 @@
     const canvasSize = 400;   // Canvas width and height (px)
     const tileCount = 20;     // Number of tiles along each edge
     const tileSize = canvasSize / tileCount; // Pixel size of each tile
-    const initialSpeed = 200; // Initial game speed (ms per frame)
+    const initialSpeed = 250; // Initial game speed (ms per frame)
 
     // -------------------
     // Get DOM elements
@@ -65,6 +113,12 @@
     const scoreDisplay = document.getElementById("score");
     const gameOverMsg = document.getElementById("gameOver");
     const dangoMsg = document.getElementById("dango");
+
+    // On-screen arrow buttons
+    const btnUp    = document.getElementById("btnUp");
+    const btnDown  = document.getElementById("btnDown");
+    const btnLeft  = document.getElementById("btnLeft");
+    const btnRight = document.getElementById("btnRight");
 
     // -------------------
     // Game variables
@@ -231,6 +285,42 @@
           break;
       }
     });
+
+    // -----------
+    // Mobile arrow button handlers
+    // -----------
+    // We’ll mimic the same logic as arrow keys
+    function goLeft() {
+      if (dx !== 1) { dx = -1; dy = 0; }
+    }
+    function goRight() {
+      if (dx !== -1) { dx = 1; dy = 0; }
+    }
+    function goUp() {
+      if (dy !== 1) { dx = 0; dy = -1; }
+    }
+    function goDown() {
+      if (dy !== -1) { dx = 0; dy = 1; }
+    }
+
+    // Attach to clicks (or touchstart)
+    btnLeft.addEventListener("click", () => {
+      if (gameOver) { initGame(); return; }
+      goLeft();
+    });
+    btnRight.addEventListener("click", () => {
+      if (gameOver) { initGame(); return; }
+      goRight();
+    });
+    btnUp.addEventListener("click", () => {
+      if (gameOver) { initGame(); return; }
+      goUp();
+    });
+    btnDown.addEventListener("click", () => {
+      if (gameOver) { initGame(); return; }
+      goDown();
+    });
+
 
     // -------------------
     // Start the game
