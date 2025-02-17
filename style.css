@@ -136,7 +136,7 @@ display: inline-block;
 
 /*Contains main content boxes.*/
 .main {
-margin: 50px 100px 50px 350px;
+margin: 50px 100px 10px 350px;
 width: auto;
 width: calc(100vw - 550px);
 }
