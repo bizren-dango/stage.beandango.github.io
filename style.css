@@ -66,6 +66,11 @@ height: 350px;
 background: linear-gradient(rgba(10,0,10,0.5), rgba(10,0,10,0.4)), url(img/static.gif);
 }
 
+.header2 {
+  height: 350px;
+  background: linear-gradient(rgba(10,0,10,0.5), rgba(10,0,10,0.4)), url(img/00_BG_2560X1440.png);
+  }
+
 /*Title bar with icon and title/tagline.*/
 .title {
 background: #1e1f24;
@@ -122,7 +127,7 @@ margin: 50px 0;
 position: absolute;
 }
 
-.sidebar h1 {
+.sidebar h1, .box h1 {
 font-size: 1.2rem;
 background: #699279;
 color: #fff;
@@ -368,6 +373,33 @@ color: #cfe2ff;
 .accordion-button.no-arrow:hover {
   background-color: #cfe2ff !important;
 }
+
+.pets img a {
+display: none;
+}
+
+.pets img a:hover {
+  display: block;
+}
+
+.overlay {
+  margin-bottom: 30px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20%;
+  width: 98%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #486e3d;
+  border-radius: 5px;
+}
+
+.pet:hover .overlay {
+  opacity: 1;
+}
+
 
 
 

@@ -5,7 +5,6 @@ class Sidebar extends HTMLElement {
   
     connectedCallback() {
       this.innerHTML = `
-        <div class="sidebar">
     <div class="box">
     <h1>Directory</h1>
     <div class="inner">
@@ -20,7 +19,22 @@ class Sidebar extends HTMLElement {
                 Home
               </button>
             </a>
-            
+          </h2>
+          <div 
+            id="collapseOne" 
+            class="accordion-collapse collapse"
+          >
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <a href="https://bizren.moe" target="_blank">
+              <button 
+              class="accordion-button no-arrow" 
+              type="button" style="background-color: #FFF;">
+                Bizren Site
+              </button>
+            </a>
           </h2>
           <div 
             id="collapseOne" 
@@ -50,21 +64,21 @@ class Sidebar extends HTMLElement {
                 <button 
                 class="accordion-button no-arrow" 
                 type="button" style="background-color: #FFF;">
-                Bluesky
+                Bluesky | Endless rambling
                 </button>
               </a>
               <a href="https://youtube.com/@hajimedangovt" target="_blank">
                 <button 
                 class="accordion-button no-arrow" 
                 type="button" style="background-color: #FFF;">
-                  Youtube
+                  Youtube | I stream and posts my covers here!
                 </button>
               </a>
               <a href="https://discord.gg/d6ByZfC8gZ" target="_blank">
                 <button 
                 class="accordion-button no-arrow" 
                 type="button" style="background-color: #FFF;">
-                  Discord
+                  Discord | pls join im so lonely
                 </button>
               </a>
               <a href="https://vgen.co/beandango" target="_blank">
@@ -78,7 +92,7 @@ class Sidebar extends HTMLElement {
                 <button 
                 class="accordion-button no-arrow" 
                 type="button" style="background-color: #FFF;">
-                  Strawpage
+                  Strawpage | Give me fun doodles!!!
                 </button>
               </a>
             </div>
@@ -161,9 +175,9 @@ class Sidebar extends HTMLElement {
     <h1> Here we go again...</h1>
     <div class="inner">
       <p>
-        <b>SUBJECT:</b> Dango <br>
+        <b>SUBJECT:</b> Hajime Dango <br>
         <b>GENDER:</b> Female<br>
-        <b>AGE:</b> Appears to be mid twenties
+        <b>AGE:</b> 24
       </p>
     </div>
   </div>
@@ -171,11 +185,15 @@ class Sidebar extends HTMLElement {
     <h1>Apparent interests</h1>
     <div class="inner">
       <ul>
-        <li>???</li>
+        <li>Snakes</li>
+        <li>Cats</li>
+        <li>Music, digital art</li>
+        <li>Anime (She has a MAL <a href="https://myanimelist.net/animelist/beanDango">here!</a>!)</li>
+        <li>Rats</li>
+        <li>Japanese language and weeb shit</li>
       </ul>
     </div>
-  </div>
-</div>`;
+  </div>`;
     }
   }
   
